@@ -67,6 +67,7 @@ export function createChatBoxStyles() {
             height: 120px;
             flex-shrink: 0;
             position: relative;
+            align-items: center;
         }
 
         .input-container::before {
@@ -91,7 +92,7 @@ export function createChatBoxStyles() {
             background: rgba(0, 150, 255, 0.05);
             color: #333;
             transition: all 0.3s ease;
-            width: 100%;
+            width: 90%;
             height: 40px;
             resize: none;
             overflow-y: auto;
@@ -186,18 +187,6 @@ export function createChatBoxStyles() {
 
         button:disabled::before {
             display: none;
-        }
-
-        #start-button {
-            background: rgba(0, 255, 136, 0.15);
-            border-color: rgba(0, 255, 136, 0.3);
-            box-shadow: 0 4px 15px rgba(0, 255, 136, 0.2);
-        }
-
-        #start-button:hover {
-            background: rgba(0, 255, 136, 0.25);
-            border-color: rgba(0, 255, 136, 0.6);
-            box-shadow: 0 6px 20px rgba(0, 255, 136, 0.4);
         }
 
         .message {

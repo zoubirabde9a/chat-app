@@ -53,7 +53,6 @@ const API_BASE_URL = 'http://localhost:5000/api';
 const chatContainer = document.getElementById('chat-container');
 const messageInput = document.getElementById('message-input');
 const sendButton = document.getElementById('send-button');
-const startButton = document.getElementById('start-button');
 const animationContainer = document.getElementById('animation-container');
 
 // Create button container
@@ -62,7 +61,6 @@ buttonContainer.className = 'button-container';
 const inputContainer = document.querySelector('.input-container');
 inputContainer.appendChild(buttonContainer);
 buttonContainer.appendChild(sendButton);
-buttonContainer.appendChild(startButton);
 
 // Create theme switcher button
 const themeButton = document.createElement('button');
@@ -249,7 +247,6 @@ messageInput.addEventListener('keypress', (e) => {
         sendMessage();
     }
 });
-startButton.addEventListener('click', initializeChat);
 
 // Initialize chat when page loads
 document.addEventListener('DOMContentLoaded', initializeChat);
