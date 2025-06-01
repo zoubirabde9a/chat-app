@@ -1,18 +1,18 @@
 import BackgroundAnimationA from './backgroundAnimationA.js';
 import BackgroundAnimationC from './backgroundAnimationC.js';
-import { createChatBoxStyles as createChatBoxStylesA } from './chatBoxA.js';
-import { createChatBoxStyles as createChatBoxStylesB } from './chatBoxB.js';
+import './chatBoxA.css';
+import './chatBoxB.css';
 
 // Theme configuration
 const themes = {
     white: {
         backgroundAnimation: BackgroundAnimationA,
-        chatBoxStyles: createChatBoxStylesA,
+        styleSheet: 'chatBoxA.css',
         name: 'WhiteTheme'
     },
     dark: {
         backgroundAnimation: BackgroundAnimationC,
-        chatBoxStyles: createChatBoxStylesB,
+        styleSheet: 'chatBoxB.css',
         name: 'DarkTheme'
     }
 };
@@ -60,9 +60,15 @@ export class ChatRoom {
     }
 
     initializeTheme() {
-        this.styleSheet = document.createElement('style');
-        this.styleSheet.textContent = themes[this.currentTheme].chatBoxStyles();
-        document.head.appendChild(this.styleSheet);
+        // Remove any existing theme stylesheets
+        const existingStyles = document.querySelectorAll('link[href*="chatBox"]');
+        existingStyles.forEach(style => style.remove());
+        
+        // Add the current theme's stylesheet
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = themes[this.currentTheme].styleSheet;
+        document.head.appendChild(link);
         
         try {
             this.backgroundAnimation = new themes[this.currentTheme].backgroundAnimation(this.animationContainer);
@@ -77,7 +83,15 @@ export class ChatRoom {
         this.currentTheme = themeName;
         const theme = themes[themeName];
         
-        this.styleSheet.textContent = theme.chatBoxStyles();
+        // Remove any existing theme stylesheets
+        const existingStyles = document.querySelectorAll('link[href*="chatBox"]');
+        existingStyles.forEach(style => style.remove());
+        
+        // Add the new theme's stylesheet
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = theme.styleSheet;
+        document.head.appendChild(link);
         
         if (this.backgroundAnimation) {
             this.backgroundAnimation.cleanup();
