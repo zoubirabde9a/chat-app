@@ -1,5 +1,6 @@
-.vertical-navbar {
-  width: 240px;
+.two-layer-navbar {
+  display: flex;
+  flex-direction: row;
   height: 100vh;
   background: linear-gradient(180deg, #181c24 0%, #232b39 100%);
   color: #e0e6ed;
@@ -9,41 +10,63 @@
   top: 0;
   left: 0;
   z-index: 1000;
-  display: flex;
-  flex-direction: column;
-  padding-top: 32px;
   border-right: 1.5px solid #232b39;
 }
-.vertical-navbar ul {
+.main-nav {
+  width: 120px;
+  background: #181c24;
+  border-right: 1.5px solid #232b39;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  padding-top: 32px;
+}
+.main-nav ul {
   list-style: none;
   margin: 0;
   padding: 0;
 }
-.nav-section {
-  margin-bottom: 36px;
-}
-.nav-title {
-  display: block;
-  font-size: 1.05rem;
+.main-item {
+  padding: 16px 0 16px 24px;
+  font-size: 1.08rem;
   font-weight: 700;
-  letter-spacing: 1.5px;
-  padding: 10px 28px 8px 32px;
   color: #6c7a89;
-  text-transform: uppercase;
-  opacity: 0.8;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s;
+  border-left: 4px solid transparent;
 }
-.nav-submenu {
-  margin-left: 0;
-  padding-left: 0;
+.main-item.active {
+  background: rgba(0, 153, 255, 0.10);
+  color: #00bfff;
+  border-left: 4px solid #00bfff;
 }
-.nav-submenu li {
+.sub-nav {
+  min-width: 320px;
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  padding-top: 32px;
+}
+.sub-items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: none;
+}
+.sub-items.active {
+  display: block !important;
+}
+.sub-items li {
   margin: 0;
 }
-.nav-submenu a {
+.sub-items a {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 12px 32px 12px 36px;
+  padding: 12px 48px 12px 36px;
   color: #e0e6ed;
   text-decoration: none;
   border-left: 4px solid transparent;
@@ -52,19 +75,18 @@
   border-radius: 0 18px 18px 0;
   position: relative;
 }
-.nav-submenu a:hover, .nav-submenu a:focus {
+.sub-items a:hover, .sub-items a:focus {
   background: rgba(0, 153, 255, 0.10);
   color: #00bfff;
   border-left: 4px solid #00bfff;
   box-shadow: 0 2px 12px 0 rgba(0,191,255,0.08);
 }
-.nav-submenu a.active {
+.sub-items a.active {
   background: linear-gradient(90deg, #1e2633 60%, #003366 100%);
   color: #00e6ff;
   border-left: 4px solid #00e6ff;
   box-shadow: 0 4px 24px 0 rgba(0,230,255,0.10);
 }
-/* Icon placeholder styling */
 .nav-icon {
   width: 20px;
   height: 20px;
