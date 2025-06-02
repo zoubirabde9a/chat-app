@@ -4,29 +4,46 @@
   <meta charset="UTF-8">
   <title>Navigation Bar</title>
   <link rel="stylesheet" href="navigationBar.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
   <nav class="two-layer-navbar">
     <div class="main-nav">
+      <div class="logo-container">
+        <i class="fas fa-cube"></i>
+        <span>AppName</span>
+      </div>
       <ul>
-        <li class="main-item" data-section="products">Products</li>
-        <li class="main-item" data-section="sales">Sales</li>
-        <li class="main-item" data-section="stats">Stats</li>
+        <li class="main-item" data-section="products">
+          <i class="fas fa-box"></i>
+          <span>Products</span>
+        </li>
+        <li class="main-item" data-section="sales">
+          <i class="fas fa-chart-line"></i>
+          <span>Sales</span>
+        </li>
+        <li class="main-item" data-section="stats">
+          <i class="fas fa-chart-bar"></i>
+          <span>Stats</span>
+        </li>
       </ul>
     </div>
     <div class="sub-nav">
+      <div class="parent-title">
+        <span>Products</span>
+      </div>
       <ul class="sub-items" data-section="products">
-        <li><a href="#products"><span class="nav-icon"></span>Products</a></li>
+        <li><a href="#products"><i class="fas fa-box"></i><span>Products</span></a></li>
       </ul>
       <ul class="sub-items" data-section="sales" style="display:none">
-        <li><a href="#clients"><span class="nav-icon"></span>Clients</a></li>
-        <li><a href="#quotes"><span class="nav-icon"></span>Quotes</a></li>
-        <li><a href="#orders"><span class="nav-icon"></span>Orders</a></li>
-        <li><a href="#sales"><span class="nav-icon"></span>Sales</a></li>
-        <li><a href="#missions"><span class="nav-icon"></span>Missions</a></li>
+        <li><a href="#clients"><i class="fas fa-users"></i><span>Clients</span></a></li>
+        <li><a href="#quotes"><i class="fas fa-file-invoice-dollar"></i><span>Quotes</span></a></li>
+        <li><a href="#orders"><i class="fas fa-shopping-cart"></i><span>Orders</span></a></li>
+        <li><a href="#sales"><i class="fas fa-handshake"></i><span>Sales</span></a></li>
+        <li><a href="#missions"><i class="fas fa-tasks"></i><span>Missions</span></a></li>
       </ul>
       <ul class="sub-items" data-section="stats" style="display:none">
-        <li><a href="#stats"><span class="nav-icon"></span>Stats</a></li>
+        <li><a href="#stats"><i class="fas fa-chart-pie"></i><span>Stats</span></a></li>
       </ul>
     </div>
   </nav>

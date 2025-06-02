@@ -1,9 +1,10 @@
 document.addEventListener('DOMContentLoaded', function () {
   const mainItems = document.querySelectorAll('.main-item');
-  const subItemsLists = document.querySelectorAll('.sub-items');
+  const subItems = document.querySelectorAll('.sub-items');
+  const parentTitle = document.querySelector('.parent-title span');
 
   function showSubItems(section) {
-    subItemsLists.forEach(list => {
+    subItems.forEach(list => {
       if (list.getAttribute('data-section') === section) {
         list.classList.add('active');
         list.style.display = 'block';
@@ -20,15 +21,28 @@ document.addEventListener('DOMContentLoaded', function () {
       mainItems.forEach(i => i.classList.remove('active'));
       // Add active to clicked
       this.classList.add('active');
+      // Hide all sub-items
+      subItems.forEach(sub => sub.style.display = 'none');
       // Show corresponding sub-items
-      showSubItems(this.getAttribute('data-section'));
+      const section = this.getAttribute('data-section');
+      const targetSubItems = document.querySelector(`.sub-items[data-section="${section}"]`);
+      if (targetSubItems) {
+        targetSubItems.style.display = 'block';
+        // Update parent title
+        parentTitle.textContent = this.querySelector('span').textContent;
+      }
     });
   });
 
   // Optionally, set the first main item as active on load
   if (mainItems.length > 0) {
     mainItems[0].classList.add('active');
-    showSubItems(mainItems[0].getAttribute('data-section'));
+    const initialSection = mainItems[0].getAttribute('data-section');
+    const initialSubItems = document.querySelector(`.sub-items[data-section="${initialSection}"]`);
+    if (initialSubItems) {
+      initialSubItems.style.display = 'block';
+      parentTitle.textContent = mainItems[0].querySelector('span').textContent;
+    }
   }
 
   // Sub-item active state
