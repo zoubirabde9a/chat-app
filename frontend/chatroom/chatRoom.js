@@ -188,7 +188,7 @@ export class ChatRoom {
         
         const messageContent = document.createElement('div');
         messageContent.className = 'message-content';
-        messageContent.textContent = content;
+        messageContent.innerHTML = content;
         
         messageDiv.appendChild(messageContent);
         this.chatContainer.appendChild(messageDiv);

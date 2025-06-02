@@ -1,4 +1,4 @@
-import { ChatRoom } from './ChatRoom.js';
+import { ChatRoom } from './chatRoom.js';
 
 // Initialize chat room when page loads
 document.addEventListener('DOMContentLoaded', () => {
